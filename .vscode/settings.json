@@ -1,0 +1,25 @@
+{
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "**/node_modules": true,
+    "**/.cache": true,
+    "**/.netlify": true,
+    "**/build": true,
+    "**/netlify": true,
+    "**/.eslintrc": true,
+    "**/netlify.toml": true,
+    "**/postcss.config.js": true,
+    "**/remix.config.js": true,
+    "**/remix.env.d.ts": true,
+    "**/server.js": true,
+    "**/tsconfig.json": true,
+    "**/yarn.lock": true,
+    "**/.vscode": true,
+    "app/tailwind.css": true
+  }
+}

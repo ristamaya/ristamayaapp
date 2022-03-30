@@ -1,0 +1,72 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["mongoDb"]
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model visitors {
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  country_code String?
+  country_name String?
+  city         String?
+  postal       String?
+  latitude     String?
+  longitude    String?
+  IPv4         String?
+  state        String?
+  visitat      DateTime @default(now())
+}
+
+type sessionlog {
+  loginat  DateTime
+  logoutat DateTime?
+  ip       String
+  note     String
+}
+
+model Users {
+  userid       String      @id @default(auto()) @map("_id") @db.ObjectId
+  useremail    String      @unique
+  userpassword String
+  avatar       String?
+  username     String?
+  firstname    String?
+  lastname     String?
+  currsession  Int?
+  maxsession   Int         @default(2)
+  sessionlog   sessionlog?
+  userstart    DateTime?
+  userend      DateTime?
+  userstatus   String      @default("active")
+  createby     String
+  createat     DateTime    @default(now())
+  updateby     String?
+  updateat     DateTime    @updatedAt
+  lockby       String?
+  lockat       DateTime?
+}
+
+model Menus {
+  menuid   String    @id @default(auto()) @map("_id") @db.ObjectId
+  parent   String?
+  menutype String
+  menurole String
+  title    String
+  icon     String?
+  path     String
+  pathtype String
+  status   String    @default("active")
+  createby String
+  createat DateTime  @default(now())
+  updateby String?
+  updateat DateTime  @updatedAt
+  lockby   String?
+  lockat   DateTime?
+}
